@@ -23,9 +23,8 @@ export default function App() {
     return `${minutes}:${seconds.toString().padStart(2, "0")}`
   }
 
-  function onPomodoroChange(e) {
-    const newVal = e.target.value * 60 // Convert minutes to seconds
-    setPomodoroTime(newVal)
+  function onPomodoroChange(newVal_Seconds) {
+    setPomodoroTime(newVal_Seconds)
   }
 
   return (
