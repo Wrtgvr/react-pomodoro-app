@@ -61,6 +61,11 @@ export default function Settings(props) {
           />
         </div>
       </div>
+      <button 
+        id="close-settings"
+        onClick={() => props.closeSettings()}>
+        Close
+      </button>
     </div>
   );
 }

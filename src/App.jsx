@@ -75,7 +75,8 @@ export default function App() {
         <div id="settings-container">
           <SettingsMenu 
             times={[pomodoroTime / 60, breakTime / 60, longBreakTime / 60]} 
-            updateTime={settingsTimeUpdate} />
+            updateTime={settingsTimeUpdate} 
+            closeSettings={() => setSettingsOpened(false)}/>
        </div>}
     </main>
   )
