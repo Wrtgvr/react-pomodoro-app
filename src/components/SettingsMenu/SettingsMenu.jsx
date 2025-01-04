@@ -1,4 +1,4 @@
-import TimeInput from './../TimeInput/TimeInput'
+import TimeInput from '../TimeInput/TimeInput'
 
 export default function Settings(props) {
   const minPomodoroMinutes = 10
@@ -38,7 +38,7 @@ export default function Settings(props) {
             minTime={minPomodoroMinutes}
             maxTime={maxPomodoroMinutes}
             onBlur={onTimeSettingsInputBlur}
-            defaultValue="25"
+            defaultValue={props.times[0]}
             type="pomodoro"
           />
           <TimeInput 
@@ -47,7 +47,7 @@ export default function Settings(props) {
             minTime={minBreakMinutes}
             maxTime={maxBreakMinutes}
             onBlur={onTimeSettingsInputBlur}
-            defaultValue="5"
+            defaultValue={props.times[1]}
             type="break"
           />
           <TimeInput 
@@ -56,7 +56,7 @@ export default function Settings(props) {
             minTime={minLongBreakMinutes}
             maxTime={maxLongBreakMinutes}
             onBlur={onTimeSettingsInputBlur}
-            defaultValue="15"
+            defaultValue={props.times[2]}
             type="longBreak"
           />
         </div>
