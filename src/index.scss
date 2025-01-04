@@ -25,7 +25,20 @@ button {
   box-shadow: 8px 10px 12px 0 rgba(10, 3, 62, 0.453);
 
   #close-settings-btn {
-    
+    box-sizing: border-box;
+    width: 80px;
+    transform: translateY(25%);
+    padding: 4px;
+    border: none;
+    background-color: #dfdfdf;
+    border-radius: 16px;
+    color: #545454;
+    font-weight: 800;
+    box-shadow: 2px 4px 6px 0 #a4a4a4;
+
+    &:hover {
+      background-color: #d1d1d1;
+    }
   }
 
   span {
@@ -52,6 +65,7 @@ button {
         color: #545454;
         background-color: #dddddd8e;
         font-weight: 800;
+        box-shadow: 2px 2px 6px 0 #a4a4a4;
       }
     }
   }
