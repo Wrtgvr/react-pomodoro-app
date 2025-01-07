@@ -13,17 +13,7 @@ export default function Settings(props) {
     newVal = Math.min(Math.max(newVal, minPomodoroMinutes), maxPomodoroMinutes)
     e.target.value = newVal
 
-    switch (type) {
-      case "pomodoro":
-        props.updateTime("pomodoro", newVal * 60)
-        break
-      case "break":
-        props.updateTime("break", newVal * 60)
-        break
-      case "longBreak":
-        props.updateTime("longBreak", newVal * 60)
-        break
-    }
+    props.updateSettingsTime(type, newVal * 60)
   }
 
   return (

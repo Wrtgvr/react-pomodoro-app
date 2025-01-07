@@ -17,7 +17,12 @@ export default function App() {
     pomodoro: setPomodoroTime,
     break: setBreakTime,
     longBreak: setLongBreakTime,
-  };
+  }
+  const typeToTime = {
+    pomodoro: pomodoroTime,
+    break: breakTime,
+    longBreak: longBreakTime,
+  }
 
   useEffect(() => {
     if (!paused) {
@@ -29,8 +34,12 @@ export default function App() {
   })
 
   useEffect(() => {
-    resetTimer(mode);
-  }, [mode]);
+    resetTimer(mode)
+  }, [mode])
+
+  function updateSettingsTime(type, val) {
+    timeUpdaters[type](val)
+  }
 
   function convertSecondsToTimer(totalSeconds) {
     const minutes = Math.floor(totalSeconds / 60)
@@ -38,20 +47,10 @@ export default function App() {
     return `${minutes}:${seconds.toString().padStart(2, "0")}`
   }
 
-  function settingsTimeUpdate(type, newVal_Seconds) {
-    if (timeUpdaters[type]) {
-      timeUpdaters[type](newValSeconds);
-    }
-  }
-
   function resetTimer(modeOverride) {
     const activeMode = modeOverride || mode
     
-    const time = {
-      pomodoro: pomodoroTime,
-      break: breakTime,
-      longBreak: longBreakTime,
-    }[activeMode];
+    const time = typeToTime[activeMode];
 
     setPaused(true)
     setTimerSeconds(time) 
@@ -78,7 +77,6 @@ export default function App() {
         <div id="timer-controls">
           <button onClick={() => {
               setPaused(prevState => !prevState)
-              setStarted(true)
             }}> {!paused ? "Pause" : "Resume"} </button>
             <button onClick={() => resetTimer()}> Reset </button>
             <button onClick={() => setSettingsOpened(prevVal => !prevVal)}>
@@ -90,7 +88,7 @@ export default function App() {
         <div id="settings-container">
           <SettingsMenu 
             times={[pomodoroTime / 60, breakTime / 60, longBreakTime / 60]} 
-            updateTime={settingsTimeUpdate} 
+            updateSettingsTime={updateSettingsTime} 
             closeSettings={() => setSettingsOpened(false)}/>
         </div>
       }
