@@ -1,4 +1,4 @@
-import TimeInput from '../TimeInput/TimeInput'
+import SettingsTimeInput from '../SettingsTimeInput/SettingsTimeInput'
 
 export default function Settings(props) {
   const minPomodoroMinutes = 10
@@ -22,7 +22,7 @@ export default function Settings(props) {
         <span>Time (Minutes)</span>
         
         <div>
-          <TimeInput 
+          <SettingsTimeInput 
             id="pomodoro-time"
             label="Pomodoro"
             minTime={minPomodoroMinutes}
@@ -31,7 +31,7 @@ export default function Settings(props) {
             defaultValue={props.times[0]}
             type="pomodoro"
           />
-          <TimeInput 
+          <SettingsTimeInput 
             id="break-time"
             label="Break"
             minTime={minBreakMinutes}
@@ -40,7 +40,7 @@ export default function Settings(props) {
             defaultValue={props.times[1]}
             type="break"
           />
-          <TimeInput 
+          <SettingsTimeInput 
             id="long-break-time"
             label="Long break"
             minTime={minLongBreakMinutes}

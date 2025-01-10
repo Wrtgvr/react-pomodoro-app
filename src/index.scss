@@ -1,11 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 body {
   margin: 0;
   font-family: Inter;
   background-image: linear-gradient(0.6turn, #3fa2ff, #493199);
   background-size: cover;
-  height: 100vh;
+  height: 100vh
+}
+
+header {
+  h1 {
+    margin: 0;
+    padding: 24px;
+    text-align: center;
+    font-size: 2.25em;
+    font-weight: 800;
+    color: #f2f2f2;
+    text-shadow: 4px 4px #3815ff94
+  }
 }
 
 button {
@@ -24,6 +36,11 @@ button {
   transform: translate(-50%, -80%);
   box-shadow: 8px 10px 12px 0 rgba(10, 3, 62, 0.453);
 
+  span {
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+
   #close-settings-btn {
     box-sizing: border-box;
     width: 80px;
@@ -41,11 +58,6 @@ button {
     }
   }
 
-  span {
-    font-weight: 800;
-    letter-spacing: 2px;
-  }
-  
   #time-settings > div {
     margin-top: 6px;
     display: flex;
@@ -71,23 +83,6 @@ button {
   }
 }
 
-@mixin TimerBackgroundObstacle {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 50%;
-  top: 60%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-}
-
 #timer-container {
   display: flex;
   justify-content: center;
@@ -100,7 +95,7 @@ main {
     border-radius: 24px;
     box-shadow: 4px 4px 2px #130f6677;
     margin-bottom: 24px;
-    
+
     button {
       background: none;
       border: none;
@@ -109,12 +104,22 @@ main {
       margin: 0 4px;
       padding: 4px 12px;
       border-radius: 14px;
-      transition: all .375s;
+      transition: all 0.375s;
 
       &.chosen-mode-btn {
         background-color: #4e68b589;
       }
     }
+  }
+
+  @mixin TimerBackgroundObstacle {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
   }
 
   #timer-wrapper {
@@ -131,16 +136,16 @@ main {
       &:after {
         @include TimerBackgroundObstacle;
         width: 250%;
-        height:500%;
+        height: 500%;
         background-color: hsla(248, 72%, 39%, 0.492);
         border-radius: 23% 77% 31% 69% / 58% 30% 70% 42%;
       }
       &:before {
         @include TimerBackgroundObstacle;
         width: 200%;
-        height:600%;
+        height: 600%;
         background-color: hsla(248, 59%, 54%, 0.618);
-        border-radius: 60% 40% 62% 38% / 33% 70% 30% 67% ;
+        border-radius: 60% 40% 62% 38% / 33% 70% 30% 67%;
       }
     }
   }

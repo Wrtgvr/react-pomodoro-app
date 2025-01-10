@@ -1,5 +1,4 @@
 
-
 export default function TimeInput(props) {
   return (
     <div id={props.id}>
