@@ -9,7 +9,7 @@ body {
 }
 
 header {
-  h1 {
+  &>h1 {
     margin: 0;
     padding: 24px;
     text-align: center;
@@ -36,7 +36,7 @@ button {
   transform: translate(-50%, -80%);
   box-shadow: 8px 10px 12px 0 rgba(10, 3, 62, 0.453);
 
-  span {
+  &>span {
     font-weight: 800;
     letter-spacing: 2px;
   }
@@ -65,11 +65,11 @@ button {
     gap: 4px;
     color: #353535;
 
-    div {
+    &>div {
       display: flex;
       flex-direction: column;
       font-weight: 600;
-      input {
+      &>input {
         border: 1px solid #cbcbcb;
         border-radius: 6px;
         padding: 4px 8px;
@@ -96,7 +96,8 @@ button {
     box-shadow: 4px 4px 2px #130f6677;
     margin-bottom: 24px;
 
-    button {
+    &>button {
+      box-sizing: border-box;
       background: none;
       border: none;
       font-weight: 800;
@@ -108,6 +109,9 @@ button {
 
       &.chosen-mode-btn {
         background-color: #4e68b589;
+      }
+      &:not(.chosen-mode-btn):hover {
+        background-color: #4e68b526;
       }
     }
   }
@@ -123,7 +127,8 @@ button {
   }
 
   #timer-wrapper {
-    span {
+    margin: 6px 0;
+    &>span {
       display: inline-block;
       position: relative;
       color: #f6f6f6;
@@ -137,15 +142,45 @@ button {
         @include TimerBackgroundObstacle;
         width: 250%;
         height: 500%;
-        background-color: hsla(248, 72%, 39%, 0.492);
+        background-color: #2f1cab7d;
         border-radius: 23% 77% 31% 69% / 58% 30% 70% 42%;
       }
       &:before {
         @include TimerBackgroundObstacle;
         width: 200%;
         height: 600%;
-        background-color: hsla(248, 59%, 54%, 0.618);
+        background-color: #5744cf9e;
         border-radius: 60% 40% 62% 38% / 33% 70% 30% 67%;
+      }
+    }
+  }
+
+  #timer-controls {
+    display: flex;
+    gap: 8px;
+
+    $base-btn-color: #9b9bef;
+    $hover-btn-color: #b4b4ed;
+    $click-btn-color: #8080d2;
+
+    &>button {
+      padding: 6px 6px;
+      width: 40px;
+      border: none;
+      border-radius: 45%;
+      box-shadow: 2px 2px 6px 2px #293f70cb;
+      aspect-ratio: 1;
+      background-color: $base-btn-color;
+      transition: all 0.375s;
+
+      .button__image {
+        width: 24px;
+      }
+      &:hover {
+        background-color: $hover-btn-color;
+      }
+      &:active {
+        background-color: $click-btn-color;
       }
     }
   }

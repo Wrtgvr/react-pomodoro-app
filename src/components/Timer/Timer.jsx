@@ -1,3 +1,8 @@
+import pauseIcon from './../../assets/pause-icon.png'
+import playIcon from './../../assets/play-icon.png'
+import resetIcon from './../../assets/reset-icon.png'
+import settingsIcon from './../../assets/settings-icon.png'
+
 export default function Timer(props) {
 
   function convertSecondsToTimer(totalSeconds) {
@@ -26,17 +31,32 @@ export default function Timer(props) {
       </div>
 
       <div id="timer-controls">
-        <button
+        <button id="pause-button"
           onClick={() => {
             props.timerSetPaused((prevState) => !prevState);
-          }}
-        >
-          {" "}
-          {!props.timerPaused ? "Pause" : "Resume"}{" "}
+          }}>
+          {!props.timerPaused ? 
+            <img
+              class='button__image'
+              src={pauseIcon}
+            /> : 
+            <img
+              class='button__image'
+              src={playIcon}
+            /> 
+          }
         </button>
-        <button onClick={() => props.resetTimer()}> Reset </button>
+        <button onClick={() => props.resetTimer()}>
+          <img
+            class='button__image'
+            src={resetIcon}
+          /> 
+        </button>
         <button onClick={() => props.setSettingsOpened((prevVal) => !prevVal)}>
-          Settings
+          <img
+            class='button__image'
+            src={settingsIcon}
+          /> 
         </button>
       </div>
     </div>
